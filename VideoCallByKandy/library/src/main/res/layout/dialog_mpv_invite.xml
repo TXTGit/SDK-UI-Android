@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/dialog_mpv_bg"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sendername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通通"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:text="邀请你加入会议"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/add_confence"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#6780ff"
+                android:textSize="18dp"
+                android:text="加入"/>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="#555555"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hold_confence"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="18dp"
+                android:textColor="#6780ff"
+                android:text="稍后"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="#555555"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/refuse_confence"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#6780ff"
+                android:textSize="18dp"
+                android:text="拒绝"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/call"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/videolayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.genband.kandy.api.services.calls.KandyView
+            android:id="@+id/remote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        <com.genband.kandy.api.services.calls.KandyView
+            android:visibility="gone"
+            android:id="@+id/local"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/callstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/call_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mpv_setting"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            android:background="@drawable/circle_black_other_bg"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/setting"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/video_button_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/hangup_talk"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circle_bg"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/small_hangup"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/camera"
+                android:layout_marginLeft="15dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/circle_black_other_bg"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/camerabutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/camera_off"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/video_mute"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/circle_black_bg"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/mute_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mute"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/camera_change"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/circle_black_other_bg"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/camera_change"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/hangulayout"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/large_hangup"/>
+    </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mpv_setting_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/translucent">
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/person"
+                android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:id="@+id/cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/remove"/>
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所有成员 ("
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/num"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+        <View
+            android:id="@+id/line"
+            android:layout_below="@id/top"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#484441"/>
+        <Button
+            android:id="@+id/addmumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#32385A"
+            android:layout_alignParentBottom="true"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:text="添加成员"/>
+        <ListView
+            android:layout_below="@+id/line"
+            android:id="@+id/mumberlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#484441"
+            android:dividerHeight="1dp"
+            android:layout_above="@id/addmumber"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:text="这是我的name"/>
+    </LinearLayout>
+    <LinearLayout
+        android:background="#bcb9b9"
+        android:id="@+id/ll_hide"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#474441"
+        android:orientation="horizontal"
+         >
+        <LinearLayout
+            android:id="@+id/remove"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/circle_blue_bg"
+                android:layout_gravity="center_vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/remove_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/small_hangup"
+                   />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/hide_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="断开" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/mpv_mute"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/circle_bg"
+                android:layout_gravity="center_vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/audio_mute_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mute"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/hide_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="禁言" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mpv_camera"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/circle_blue_bg"
+                android:layout_gravity="center_vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/camera_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera_off"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/hide_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="关闭影像" />
+        </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+</LinearLayout>
