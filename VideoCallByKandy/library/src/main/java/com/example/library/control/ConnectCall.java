@@ -1,15 +1,9 @@
 package com.example.library.control;
-
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.ListView;
-
-import com.example.library.activity.DoCallActivity;
-import com.example.library.activity.MpvListActivity;
-import com.example.library.kandy.TxtKandy;
-
-import java.util.List;
+import com.example.library.call.DoCallActivity;
+import com.example.library.mpv.MpvListActivity;
 
 /**
  * Created by DELL on 2017/7/24.

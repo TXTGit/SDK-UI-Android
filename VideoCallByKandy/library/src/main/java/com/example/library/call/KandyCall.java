@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.library.kandy.TxtKandy;
+import com.example.library.control.TxtKandy;
 import com.example.library.util.KandyLogger;
 import com.genband.kandy.api.IKandyGlobalSettings;
 import com.genband.kandy.api.Kandy;
@@ -22,6 +22,7 @@ import com.genband.kandy.api.services.calls.KandyOutgoingPSTNCallOptions;
 import com.genband.kandy.api.services.calls.KandyRecord;
 import com.genband.kandy.api.services.calls.KandyView;
 import com.genband.kandy.api.services.common.KandyCameraInfo;
+import com.genband.kandy.api.services.common.KandyMediaState;
 import com.genband.kandy.api.services.common.KandyMissedCallMessage;
 import com.genband.kandy.api.services.common.KandyResponseListener;
 import com.genband.kandy.api.services.common.KandyWaitingVoiceMailMessage;
@@ -35,31 +36,34 @@ import com.genband.kandy.api.utils.KandyLog;
 public class KandyCall implements KandyCallServiceNotificationListener {
     private final static String TAG=KandyCall.class.getSimpleName();
 
-    private  String API_KEY = "DAK858161e538ed4802896ad0f1520f9118";
-    private  String API_SECRET = "DAS96c8a0f63f0f42a4917871967a27e098";
+    private  String API_KEY = "DAK2af7fc60b41b407d9fbd49ec4226e1a0";
+    private  String API_SECRET = "DAS67fd493180d049948e17789776d5f480";
     public IKandyCall mCurrentCall=null;
     private Context mContext;
 
     public  AlertDialog dialog=null;
     public AlertDialog mInCommingCallDialog;
-
     public KandyCallListener mKandyCallListener;
+    private static String HOST="https://api.kandycn.com";
 
+    boolean mIsIncomingCall=false;
     public KandyCall(){
-
     }
-
-    public void initKandy(Context context,String Apikey,String ApiSecret){
+    //在Application中初始化kandy
+    public void initKandy(Context context,String Apikey,String ApiSecret,String kandyhost){
         mContext=context;
         if (Apikey!=null){
             API_KEY=Apikey;
             API_SECRET=ApiSecret;
         }
+        if (kandyhost!=null){
+            HOST=kandyhost;
+        }
         Kandy.getKandyLog().setLogLevel(KandyLog.Level.VERBOSE);
         Kandy.initialize(mContext, API_KEY, API_SECRET);
         Kandy.getKandyLog().setLogger(new KandyLogger());
         IKandyGlobalSettings settings = Kandy.getGlobalSettings();
-        settings.setKandyHostURL("https://api.kandycn.com");
+        settings.setKandyHostURL(HOST);
         Kandy.getGlobalSettings().setWebRTCLogsEnabled(true);
         Kandy.getGlobalSettings().setPowerSaverEnable(false);
         registerCallListener();
@@ -75,6 +79,7 @@ public class KandyCall implements KandyCallServiceNotificationListener {
 
     public void doCall(final String number,final boolean isVideo, boolean ispstn,final KandyView remote,final KandyView local,final CallRequestCallBack callBack){
         boolean bIsPSTNCall = ispstn;
+        mIsIncomingCall=false;
         if (bIsPSTNCall){
             Log.d(TAG,"PSTN");
             mCurrentCall= Kandy.getServices().getCallService().createPSTNCall(null, number, KandyOutgoingPSTNCallOptions.NONE);
@@ -172,8 +177,26 @@ public class KandyCall implements KandyCallServiceNotificationListener {
         ((IKandyIncomingCall)mCurrentCall).accept(flag,listener);
     }
 
+    private boolean mIsTalkingIncomming=false;
+
     @Override
     public void onIncomingCall(IKandyIncomingCall iKandyIncomingCall) {
+        if (mCurrentCall!=null){
+            mIsTalkingIncomming=true;
+            iKandyIncomingCall.reject(new KandyCallResponseListener() {
+                @Override
+                public void onRequestSucceeded(IKandyCall iKandyCall) {
+
+                }
+
+                @Override
+                public void onRequestFailed(IKandyCall iKandyCall, int i, String s) {
+
+                }
+            });
+            return;
+        }
+        mIsIncomingCall=true;
         Log.d(TAG, "onIncomingCall: ");
         mCurrentCall=iKandyIncomingCall;
         if (mKandyCallListener!=null){
@@ -198,10 +221,16 @@ public class KandyCall implements KandyCallServiceNotificationListener {
     public void onCallStateChanged(KandyCallState kandyCallState, IKandyCall iKandyCall) {
         Log.d(TAG,"onCallStateChanged"+kandyCallState);
         if (kandyCallState == KandyCallState.TERMINATED) {
-            if (mKandyCallListener!=null){
-             mKandyCallListener.onTenminaten(iKandyCall.getTerminationReason().getStatusCode());
+            if (!mIsTalkingIncomming){
+                Log.d(TAG, "onCallStateChanged: StatusCode"+iKandyCall.getTerminationReason().getStatusCode());
+                Log.d(TAG, "onCallStateChanged: getReason"+iKandyCall.getTerminationReason().getReason());
+                if (mKandyCallListener!=null){
+                    mKandyCallListener.onTenminaten(iKandyCall.getTerminationReason().getStatusCode());
+                }
+                mCurrentCall=null;
+            }else {
+                mIsTalkingIncomming=false;
             }
-            mCurrentCall=null;
         } else if (kandyCallState == KandyCallState.TALKING) {
             if (mKandyCallListener!=null){
              mKandyCallListener.onTalking();
@@ -212,14 +241,19 @@ public class KandyCall implements KandyCallServiceNotificationListener {
             }
 
         }else if (kandyCallState == KandyCallState.RINGING){
-            if (mKandyCallListener!=null){
-            mKandyCallListener.onRinging();
+            if (mKandyCallListener!=null&&!mIsIncomingCall&&!mIsTalkingIncomming){
+                mKandyCallListener.onRinging();
             }
         }
     }
 
     @Override
     public void onVideoStateChanged(IKandyCall iKandyCall, boolean b, boolean b1) {
+
+    }
+
+    @Override
+    public void onMediaStateChanged(IKandyCall iKandyCall, KandyMediaState kandyMediaState) {
 
     }
 
@@ -307,7 +341,7 @@ public class KandyCall implements KandyCallServiceNotificationListener {
         AlertDialog.Builder builder=new AlertDialog.Builder(context);
         builder.setTitle("请输入拨打账号：");
         final EditText edit = new EditText(context);
-        edit.setText("8613818693614@xbsx.txtechnology.com.cn");
+        edit.setText("user3@sdkdemo.txtechnology.com.cn");
         builder.setView(edit);
         builder.setPositiveButton("拨打", new DialogInterface.OnClickListener() {
             @Override

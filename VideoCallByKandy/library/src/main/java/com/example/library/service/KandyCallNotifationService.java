@@ -6,18 +6,18 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.library.activity.MpvInviteActivity;
 import com.example.library.call.KandyCall;
-import com.example.library.kandy.TxtKandy;
+import com.example.library.control.TxtKandy;
+import com.example.library.mpv.MpvInviteActivity;
 import com.example.library.mpv.TxtMpvCallManmger;
 
 /**
  * Created by DELL on 2017/7/26.
+ * 服务监听是否有mpv会议来电
  */
 
 public class KandyCallNotifationService extends Service implements KandyCall.CallInCommingListener,TxtMpvCallManmger.MpvInviteCallBack{
     private final static String TAG=KandyCallNotifationService.class.getSimpleName();
-
 
     @Nullable
     @Override
