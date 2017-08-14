@@ -19,6 +19,7 @@ public class BaseKandyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Log.d("BaseKandyApplication", "onCreate:BaseKandyApplication ");
+        //初始化kandy相关内容
         TxtKandy.getKandyCall().initKandy(this,null,null,null);
         TxtKandy.getMpvCall();
         TxtKandy.getDataMpvConnnect().init(this);

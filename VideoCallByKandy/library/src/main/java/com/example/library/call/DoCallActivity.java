@@ -265,12 +265,13 @@ public class DoCallActivity extends BaseActivity implements KandyCall.KandyCallL
         mCameraChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if (mIsFront){
                     TxtKandy.getKandyCall().switchCamer(false, new KandyResponseListener() {
                         @Override
                         public void onRequestSucceded() {
                             mIsFront=false;
-
                         }
 
                         @Override
@@ -329,7 +330,6 @@ public class DoCallActivity extends BaseActivity implements KandyCall.KandyCallL
                                 }
                             });
                             mIsMute=false;
-
                         }
 
                         @Override
@@ -540,6 +540,7 @@ public class DoCallActivity extends BaseActivity implements KandyCall.KandyCallL
         super.onDestroy();
         if (mModelManager!=null){
             mModelManager.unregister();
+            mModelManager.setSpeakerPhoneOn(true);
         }
     }
 

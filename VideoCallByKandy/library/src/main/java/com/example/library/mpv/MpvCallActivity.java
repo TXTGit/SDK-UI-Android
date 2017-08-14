@@ -581,6 +581,7 @@ public class MpvCallActivity extends BaseActivity implements KandyCall.KandyCall
         LinearLayout mMuteLayout;
         LinearLayout mCameraLayout;
 
+
         public MyViewHolder(View itemView) {
             mName= (TextView) itemView.findViewById(R.id.name);
             mHide= (LinearLayout) itemView.findViewById(R.id.ll_hide);

@@ -453,6 +453,7 @@ public class TxtMpvCallManmger implements IKandyMultiPartyConferenceNotification
                     List<Participant> participants=new ArrayList<Participant>();
                     List<String> adintors=iKandyMultiPartyConferenceRoomDetails.getAdministrators();
                     Log.d(TAG,"adintors"+adintors);
+                    isAdamin=false;
                     for (String admin:adintors){
                         if (TxtKandy.getAccessKandy().mUser.equals(admin)){
                             isAdamin=true;
