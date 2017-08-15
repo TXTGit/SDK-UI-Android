@@ -188,7 +188,6 @@ public class TxtMpvCallManmger implements IKandyMultiPartyConferenceNotification
                     Log.d(TAG, "onInviteRecieved:markAsReceived::onRequestSucceded: "+ " ");
                 }
             });
-
             KandyMultiPartyConferenceRoom conferenceRoom = kandyMultiPartyConferenceInvite.getRoom();
             String sender=kandyMultiPartyConferenceInvite.getSender().getUri();
             if (conferenceRoom==null){
@@ -325,7 +324,7 @@ public class TxtMpvCallManmger implements IKandyMultiPartyConferenceNotification
             room.setConferenceID(mConferenceId);
             room.setPinCode(mRoomPinCode);
             room.setRoomPSTNNumber(mRoomPstnNumber);
-            room.setmRoomName(mpvName);
+            room.setmRoomName(mRoomNum);
             TxtKandy.getDataMpvConnnect().addRoom(room);
             callRoomNumber(context,mRoomNum,mpvName);
         }
@@ -335,7 +334,7 @@ public class TxtMpvCallManmger implements IKandyMultiPartyConferenceNotification
             room.setConferenceID(mConferenceId);
             room.setPinCode(mRoomPinCode);
             room.setRoomPSTNNumber(mRoomPstnNumber);
-            room.setmRoomName("");
+            room.setmRoomName(mRoomNum);
             TxtKandy.getDataMpvConnnect().addRoom(room);
         }
 
@@ -344,7 +343,7 @@ public class TxtMpvCallManmger implements IKandyMultiPartyConferenceNotification
             KandyRecord roomRecord = createKandyRecordWithDomain(roomNumber);
             if (roomRecord!=null){
                 Intent intent=new Intent(context,MpvCallActivity.class);
-                intent.putExtra(MpvCallActivity.MPVNAME,mpvName);
+                intent.putExtra(MpvCallActivity.MPVNAME,roomNumber);
                 intent.putExtra(MpvCallActivity.MPVNUMBER,roomRecord.getUri());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
@@ -565,6 +564,18 @@ public class TxtMpvCallManmger implements IKandyMultiPartyConferenceNotification
             mRoomPinCode=room.getPinCode();
             mRoomPstnNumber=room.getRoomPSTNNumber();
             callRoomNumber(context,mRoomNum,room.getmRoomName());
+        }
+        public void joninWithNickName(String nickname){
+            Kandy.getServices().getMultiPartyConferenceService().join(mConferenceId, nickname, new KandyResponseListener() {
+                @Override
+                public void onRequestSucceded() {
+                    Log.d(TAG, "joinWithnickName onRequestSucceded: joinWithnickName");
+                }
+                @Override
+                public void onRequestFailed(int i, String s) {
+                    Log.d(TAG, "joinWithnickNameon RequestSucceded: onRequestFailed");
+                }
+            });
         }
 
 }

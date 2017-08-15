@@ -73,7 +73,6 @@ public class DoCallActivity extends BaseActivity implements KandyCall.KandyCallL
     private LinearLayout mRejectButton;
     private RelativeLayout mGoingLayout;
     private AudioModeManger mModelManager;
-
     private boolean isSpeaker=false;
 
     @Override
@@ -490,11 +489,17 @@ public class DoCallActivity extends BaseActivity implements KandyCall.KandyCallL
         mInComingLayout.setVisibility(View.GONE);
         mTalkHandler.postDelayed(mTalkingRunnable,0);
         if (mIsVideoCall){
+            if (mModelManager!=null){
+                mModelManager.setSpeakerPhoneOn(true);
+            }
             mCallTime.setVisibility(View.VISIBLE);
             mCallVideoStatue.setVisibility(View.GONE);
             mButtonItem.setVisibility(View.VISIBLE);
 
         }else {
+            if (mModelManager!=null){
+                mModelManager.setSpeakerPhoneOn(false);
+            }
             mAudioTime.setVisibility(View.VISIBLE);
             mAudioStatus.setVisibility(View.GONE);
             mAudioItemLayout.setVisibility(View.VISIBLE);
@@ -539,8 +544,9 @@ public class DoCallActivity extends BaseActivity implements KandyCall.KandyCallL
     protected void onDestroy() {
         super.onDestroy();
         if (mModelManager!=null){
+            mModelManager.setSpeakerInit();
+            //mModelManager.setSpeakerPhoneOn(true);
             mModelManager.unregister();
-            mModelManager.setSpeakerPhoneOn(true);
         }
     }
 

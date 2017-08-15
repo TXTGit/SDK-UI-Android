@@ -95,7 +95,8 @@ public class MpvCreateActivity extends BaseActivity {
                         MpvCreateActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                               TxtKandy.getMpvCall().skipMpvCall(MpvCreateActivity.this,mMpvName.getText().toString());
+                                TxtKandy.getMpvCall().joninWithNickName(mMpvName.getText().toString());
+                                TxtKandy.getMpvCall().skipMpvCall(MpvCreateActivity.this,mMpvName.getText().toString());
                             }
                         });
                     }
