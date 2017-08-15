@@ -1,1 +1,1 @@
-kandy sdk demo
+kandy sdk demo# SDK-UI-Android
