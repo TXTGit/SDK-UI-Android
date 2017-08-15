@@ -1,54 +1,60 @@
 kandy sdk demo# SDK-UI-Android
 
 
-SDKDemo ¿ìËÙ¼¯³ÉÎÄµµ¡¾Android¡¿
+SDKDemo å¿«é€Ÿé›†æˆæ–‡æ¡£ã€Androidã€‘
 
 
 
 
-¼¯³É²½Öè
-Ìí¼Ó´úÂë
+é›†æˆæ­¥éª¤
+æ·»åŠ ä»£ç 
 
-Ñ¡Ôñandroid studioÏÂÃæµÄlibrary¹¤³Ì¿âÏîÄ¿µ¼ÈëÏîÄ¿¹¤³Ì½øĞĞÒıÓÃ
-ÈçÏÂËùÊ¾£º
+![](./sdkdoc/1.png)
+
+é€‰æ‹©android studioä¸‹é¢çš„libraryå·¥ç¨‹åº“é¡¹ç›®å¯¼å…¥é¡¹ç›®å·¥ç¨‹è¿›è¡Œå¼•ç”¨
+å¦‚ä¸‹æ‰€ç¤ºï¼š
+
+![](./sdkdoc/2.png)
 
 
-ÔÚ¹¤³ÌÏîÄ¿ÖĞ¼Ì³Ğlibrary¹¤³ÌÖĞµÄapplicationÏÂµÄBaseKandyApplication¡£
+åœ¨å·¥ç¨‹é¡¹ç›®ä¸­ç»§æ‰¿libraryå·¥ç¨‹ä¸­çš„applicationä¸‹çš„BaseKandyApplicationã€‚
 
-Íê³ÉÈçÉÏ²Ù×÷¼°¼¯³ÉºÃAndroid¶ËµÄÏîÄ¿¡£
-´úÂëµ÷ÓÃ
-Libraey¹¤³Ì°ücontrolÏÂÃæµÄTxtKandyÀàÊÇSDKDemo ÊµÀı»¯¿ØÖÆÀà£¬ÆäÖĞ°üÀ¨ÁË£º
-	AccessKandy:ÕËºÅµÇÂ¼£»
-	KandyCall: kandyµÄ³õÊ¼»¯ÒÔ¼°µã¶ÔµãµÄÍ¨»°£»
-	TxtMpvCallManmger:mpvÊÓÆµ»áÒé¿ØÖÆÀà£»
-	ConnectCall:Ò³Ãæ¿ØÖÆÌø×ªÀà£»
-	DataMpvConnect:±¾µØÊı¾İ»¯´æ´¢Àà£»
-	MediaPlayControl£ºÁåÉù¿ØÖÆÀà£»
+å®Œæˆå¦‚ä¸Šæ“ä½œåŠé›†æˆå¥½Androidç«¯çš„é¡¹ç›®ã€‚
+ä»£ç è°ƒç”¨
+Libraeyå·¥ç¨‹åŒ…controlä¸‹é¢çš„TxtKandyç±»æ˜¯SDKDemo å®ä¾‹åŒ–æ§åˆ¶ç±»ï¼Œå…¶ä¸­åŒ…æ‹¬äº†ï¼š
+	AccessKandy:è´¦å·ç™»å½•ï¼›
+	KandyCall: kandyçš„åˆå§‹åŒ–ä»¥åŠç‚¹å¯¹ç‚¹çš„é€šè¯ï¼›
+	TxtMpvCallManmger:mpvè§†é¢‘ä¼šè®®æ§åˆ¶ç±»ï¼›
+	ConnectCall:é¡µé¢æ§åˆ¶è·³è½¬ç±»ï¼›
+	DataMpvConnect:æœ¬åœ°æ•°æ®åŒ–å­˜å‚¨ç±»ï¼›
+	MediaPlayControlï¼šé“ƒå£°æ§åˆ¶ç±»ï¼›
 	
 
-¡£
-ÉèÖÃappid ºÍ appsecert ³õÊ¼»¯kandySDK
+ã€‚
+è®¾ç½®appid å’Œ appsecert åˆå§‹åŒ–kandySDK
+
+![](./sdkdoc/3.png)
 	
 
-ÔÚapplicationÖĞ³õÊ¼»¯²ÎÊı·Ö±ğÎª£ºkey¡¢secre¡¢,hosturi£»Ê¹ÓÃÄ¬ÈÏÊ±²ÎÊıÖÃÎªnull
+åœ¨applicationä¸­åˆå§‹åŒ–å‚æ•°åˆ†åˆ«ä¸ºï¼škeyã€secreã€,hosturiï¼›ä½¿ç”¨é»˜è®¤æ—¶å‚æ•°ç½®ä¸ºnull
 TxtKandy.getKandyCall().initKandy(this,null,null,null);
 
-ÓÃ»§µÇÂ¼
-²Î¿¼AccessKandy 
+ç”¨æˆ·ç™»å½•
+å‚è€ƒAccessKandy 
 TxtKandy.getAccessKandy().userLogin(user,passward,callback)
-User:µÇÂ¼ÓÃ»§Ãû£»
-Passward:ÓÃ»§ÃÜÂë£»
-Callback:»Øµ÷
-²¦´òcall
-²Î¿¼SupportViewController
+User:ç™»å½•ç”¨æˆ·åï¼›
+Passward:ç”¨æˆ·å¯†ç ï¼›
+Callback:å›è°ƒ
+æ‹¨æ‰“call
+å‚è€ƒSupportViewController
 TxtKandy.getKandyCall().showDoCallDialog(MainActivity.this,isVideo);
 
 
-isVideo:²¼¶ûÀàĞÍ£ºÊÇ·ñÊÇÊÓÆµ»á»°
-·¢ÆğMPV »áÒé
-²Î¿¼TxtMpvCallManmger
+isVideo:å¸ƒå°”ç±»å‹ï¼šæ˜¯å¦æ˜¯è§†é¢‘ä¼šè¯
+å‘èµ·MPV ä¼šè®®
+å‚è€ƒTxtMpvCallManmger
 
 TxtKandy.getConnnectCall().skipDoCallMpv(MainActivity.this);
 
-¿ªÆômpvÊÓÆµ»áÒé»á»°£¬mpvÏà¹Ø¹¦ÄÜÄ£¿éÇë²Î¿¼TxtMpvCallManmger
+å¼€å¯mpvè§†é¢‘ä¼šè®®ä¼šè¯ï¼Œmpvç›¸å…³åŠŸèƒ½æ¨¡å—è¯·å‚è€ƒTxtMpvCallManmger
 
