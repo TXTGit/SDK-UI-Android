@@ -21,13 +21,13 @@ SDKDemo 快速集成文档【Android】
 
 完成如上操作及集成好Android端的项目。
 代码调用
-Libraey工程包control下面的TxtKandy类是SDKDemo 实例化控制类，其中包括了：
-	AccessKandy:账号登录；
-	KandyCall: kandy的初始化以及点对点的通话；
-	TxtMpvCallManmger:mpv视频会议控制类；
-	ConnectCall:页面控制跳转类；
-	DataMpvConnect:本地数据化存储类；
-	MediaPlayControl：铃声控制类；
+Libraey工程包control下面的TxtKandy类是SDKDemo 实例化控制类，其中包括了：</br>
+	AccessKandy:账号登录；</br>
+	KandyCall: kandy的初始化以及点对点的通话；</br>
+	TxtMpvCallManmger:mpv视频会议控制类；</br>
+	ConnectCall:页面控制跳转类；</br>
+	DataMpvConnect:本地数据化存储类；</br>
+	MediaPlayControl：铃声控制类；</br>
 	
 
 。
@@ -36,25 +36,28 @@ Libraey工程包control下面的TxtKandy类是SDKDemo 实例化控制类，其�
 ![](./sdkdoc/3.png)
 	
 
-在application中初始化参数分别为：key、secre、,hosturi；使用默认时参数置为null
-TxtKandy.getKandyCall().initKandy(this,null,null,null);
+在application中初始化参数分别为：key、secre、hosturi.使用默认时参数置为null.</br>
+参考如下：</br>
+TxtKandy.getKandyCall().initKandy(this,null,null,null);</br>
 
-用户登录
-参考AccessKandy 
-TxtKandy.getAccessKandy().userLogin(user,passward,callback)
-User:登录用户名；
-Passward:用户密码；
-Callback:回调
-拨打call
-参考SupportViewController
-TxtKandy.getKandyCall().showDoCallDialog(MainActivity.this,isVideo);
+用户登录</br>
+参考AccessKandy </br>
+TxtKandy.getAccessKandy().userLogin(user,passward,callback)</br>
+User:登录用户名；</br>
+Passward:用户密码；</br>
+Callback:回调</br>
 
 
-isVideo:布尔类型：是否是视频会话
-发起MPV 会议
-参考TxtMpvCallManmger
 
-TxtKandy.getConnnectCall().skipDoCallMpv(MainActivity.this);
+拨打call</br>
+参考包名为call下的KadnyCall类
+TxtKandy.getKandyCall().showDoCallDialog(MainActivity.this,isVideo);</br></br>
+isVideo:布尔类型：是否是视频会话</br>
 
-开启mpv视频会议会话，mpv相关功能模块请参考TxtMpvCallManmger
+
+
+发起MPV 会议</br>
+参考TxtMpvCallManmger</br>
+TxtKandy.getConnnectCall().skipDoCallMpv(MainActivity.this);</br>
+开启mpv视频会议会话，mpv相关功能模块请参考TxtMpvCallManmger</br>
 
